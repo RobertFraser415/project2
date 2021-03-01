@@ -1,0 +1,43 @@
+* { 
+    box-sizing: border-box; 
+}
+
+html{
+    min-height:100%
+}
+body{  
+    background-image:url('../img/messy-pizza-on-a-black-table.webp');
+    background-size:cover;
+}
+
+#body-container{
+    display:flex;
+    flex-direction:column-reverse;
+    justify-content:center;
+    align-items:center;
+    background-color:transparent;
+    height:100vh;
+}
+
+.navbar{
+    display:none;
+}
+#navbar-line{
+    display:none;
+}
+.header-class{
+    display:none;
+}
+
+
+.welcome-box{
+    background-color:rgba(255,255,255,0.8);
+    padding:10px;
+    border-radius: 8px;
+    
+}
+
+
+@media only screen and (max-width:600px) {
+    
+}

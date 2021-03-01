@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row" style="justify-content: center; align-items: center; text-align: center">
   <div class="col-sm-6">
       <div class="card">
@@ -25,3 +26,38 @@
                       <button type="submit" class="btn btn-success">See more details</button>
                     </form>
                   </div>
+=======
+<div class="card" style="width:20rem; height:600px">
+  <div class="card-image d-flex align-items-center">
+    <img src="<%= recipe.picture  %> " class="card-img-top" alt="photo of recipe">
+  </div>
+  <h3 class="card-title"><%= recipe.name %> </h3>
+  <div class="card-body">
+    <p class="card-text"> Serving Size: <%= recipe.servings %> </p>
+    <p class="card-text"> Prep Time (in minutes): <%= recipe.preptime %> </p>
+    <% if (isFavorite) { %>
+      <% if (isFavorite.includes(recipe.id)) { %>
+        <form method="GET" action="/user/calendar/add/<%= recipe.id %>">
+          <button type="submit" class="btn btn-outline-success">Add to calendar</button>
+        </form>
+        <% } %>
+    <% } %>
+    <form method="GET" action="/recipe/details/<%=recipe.id%>">
+      <button type="submit" class="btn btn-outline-success">See more details</button>
+    </form>
+    <% if (isFavorite) { %>
+      <% if (isFavorite.includes(recipe.id)) { %>
+        <form method="POST" action="/user/favorites/<%=recipe.id%>/?_method=DELETE">
+          <button type="submit" class="btn btn-danger">Remove from Favorites</button>
+        </form> 
+      <% } else { %>
+        <form method="POST" action="/user/favorites/<%=recipe.id%>">
+          <button type="submit" class="btn btn-outline-success">Add to Favorites</button>
+        </form>
+      <% } %>
+    <% } %>
+    
+  </div>
+</div>
+
+>>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
