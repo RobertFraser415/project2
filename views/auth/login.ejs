@@ -1,9 +1,27 @@
 <form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email" value="rainbow@example.com">
-
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password" value="password">
-
-  <input type="submit" value="Log In">
+  <div class="row">
+    <div class="col-md-1 offset-md-4 col-sm-1">
+      <label class="form-group"for="auth-email">Email</label>
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <input class="form-control" id="auth-email" type="email" name="email" value="rainbow@example.com">
+    </div>
+  </div>
+  <div class="row gy-2">
+    <div class="col-md-1 offset-md-4 col-sm-1">
+      <label class="form-group"for="auth-password">Password</label>
+    </div>
+    <div class="col-md-3">
+      <input class="form-control"id="auth-password" type="password" name="password" value="password">
+    </div>
+  </div>
+  <div class="row gy-2">
+    <div class="offset-md-3">
+      <button class="btn btn-success"type="submit"> Log in!</button>
+    </div>
+  </div>
+  
 </form>
+
+
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
     
     See what your meal for today is!
@@ -31,5 +32,49 @@
         <button type="submit">See more favorites</button>
     </form>
 </div>
+=======
+<div class="row">
+    <div class="col-6">
+        <div class="border border-success border-1">
+            <h2>My favorites</h2>
+            <ul>
+                <% userFavorites.forEach((favoriteRecipe) => { %> 
+                    <li style="list-style-type: none;">
+                        <%- include('../partials/recipeCard', {recipe:favoriteRecipe, isFavorite:isFavorite})  %> 
+                    </li>
+                <% }) %>
+            </ul>
+            <form method="GET" action="/user/favorites">
+                <button class="btn btn-outline-success"type="submit" style="margin-bottom:10px;">See more favorites</button>
+            </form>
+        </div>
+    </div> 
+    <div class="col-6">
+        <div class="calendar-section border border-success border-1">
+            <p>See what your meal for today is!</p>
+            <a href="/user/calendar">Calendar</a>
+        </div>
+        <div class="random-recipe-section border border-success border-1" style="margin-top:10px;">
+            <h2>Check out these recipes!</h2>
+            <ul>
+                <% if (recipes) { %>
+                    <% recipes.forEach((recipe) => { %> 
+                        <li style="list-style-type: none;">
+                            <%- include('../partials/recipeCard', {recipe:recipe, isFavorite:isFavorite}) %> 
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li>Wow! You have favorited all the recipes! There are no more recipes in our database to check out! :O </li>
+                <% } %>
+            </ul>
+            <form method="GET" action="/recipe">
+                <button class="btn btn-outline-success"type="submit" style="margin-bottom:10px;">See more recipes</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+>>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
 
 <script src="/js/dashboard.js"></script>

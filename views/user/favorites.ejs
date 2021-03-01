@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 <h1>Your favorites here</h1>
 
 <%favoritesList.forEach(favorite=> { %>
                     <%- include('../partials/recipeCard', {recipe:favorite, isFavorite:isFavorite}) %>
 <% }) %>
+=======
+<h1>Favorites</h1>
+<div class="row">
+    <%favoritesList.forEach(favorite=> { %>
+        <div class="col-md-6">
+            <%- include('../partials/recipeCard', {recipe:favorite, isFavorite:isFavorite}) %>
+        </div>
+    <% }) %>
+</div>
+>>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6

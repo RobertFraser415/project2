@@ -1,8 +1,19 @@
+<link rel="stylesheet" type="text/css"href="/css/landing.css">
 
-<h2>Figure out what to eat this week!</h2>
+<div class="welcome-box">
+    <div>
+        <h1 class="app-name"><span>MealHack</span></h1>
+    </div>
+    <div class="landing-page">
+        <h2><span class="">Find out what to eat this week!</span></h2>
+        <% if (currentUser){ %>
+            <p class="user-name" id="landing-page-user-name">Hi <%=currentUser.name.charAt(0).toUpperCase() + currentUser.name.slice(1)%>!</p>
+        <% } %> 
+        <form method="GET" action="/recipe">
+            <button class="btn btn-outline-success"type="submit">
+                Explore More!
+            </button>
+        </form>
+    </div>
+</div>
 
-<form method="GET" action="/recipe">
-    <button type="submit">
-        Explore More!
-    </button>
-</form>

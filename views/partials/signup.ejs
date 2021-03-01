@@ -1,0 +1,47 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#signupModal">
+    Sign Up
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signupLabel">Signup</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <form action="/auth/signup" method="POST">
+            <div class="modal-body">
+                <div class="form-group row align-items-center">
+                    <div class= "col-md-2 offset-md-2 col-sm-2">
+                        <label class="form-label"for="new-email">Email</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control"id="new-email" type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group row align-items-center">
+                    <div class= "col-md-2 offset-md-2">
+                        <label for="new-name">Name</label>
+                    </div>
+                    <div class= "col-md-6">
+                        <input class="form-control"id="new-name" type="text" name="name">
+                    </div>
+                </div>
+                <div class="form-group row align-items-center">
+                    <div class= "col-md-2 offset-md-2">
+                        <label for="new-password">Password</label>
+                    </div>
+                    <div class= "col-md-6">
+                        <input class="form-control"id="new-password" type="password" name="password" min="8">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Sign Up!</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

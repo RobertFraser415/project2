@@ -1,5 +1,7 @@
-
+<link rel="stylesheet" type="text/css"href="/css/explore.css">
+<script src="/js/explore.js" defer></script>
 <br>
+<<<<<<< HEAD
 <h1>Explore recipes to find what to cook!</h1>
 <hr>
 <div class="card-body" style="display: flex; flex-direction: row; justify-content: space-around;">
@@ -17,4 +19,32 @@
                     <%- include('../partials/recipeCard', {recipe: recipe}) %> 
                 </li>
 <% }) %>
+=======
+<h1 class="page-title">Explore recipes to find what to cook!</h1>
+
+
+<form method="GET" action="/recipe" autocomplete="off">
+    <div class="row justify-content-center">
+        <div class="autocomplete col-md-3 col-sm-4">
+            <input class="form-control"id="searchInput" type="text" name="searchInput" placeholder="Enter name to search">
+        </div>
+        <div class="col-md-1 col-sm-2">
+            <button id="searchBarButton"class="btn btn-outline-success" type="submit">Submit</button>
+        </div>
+        
+    </div>
+</form>
+
+<div class="row justify-content-center">
+    <% recipes.forEach((recipe) => { %> 
+        <div class="col-sm-6 col-md-4 col-lg-4">
+            <%- include('../partials/recipeCard', {recipe: recipe}) %>
+        </div>
+        <% }) %>
+</div>
+
+
+
+
+>>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
 

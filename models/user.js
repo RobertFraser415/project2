@@ -68,5 +68,16 @@ module.exports = (sequelize, DataTypes) => {
       pendingUser.password = hash;
     }
   });
+
+  user.beforeBulkUpdate((pendingUpdateUser, options) => {
+    // check that a pending user and their pw exists
+    if (pendingUpdateUser && pendingUpdateUser.attributes.password) {
+      // hash the password with bcrypt
+      let hash = bcrypt.hashSync(pendingUpdateUser.attributes.password, 12)
+      // store the hashed password as the user's password in the DB
+      pendingUpdateUser.attributes.password = hash;
+    }
+  });
+
   return user;
 };

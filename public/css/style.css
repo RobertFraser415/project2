@@ -1,40 +1,111 @@
+* { 
+  box-sizing: border-box; 
+}
+
+#body-container {
+  /* background-color:ivory */
+  background-color:white;
+  min-height:100vh;
+  /* background-color:rgb(213, 206, 206); */
+}
+body {
+  /* font-family: 'Nunito', sans-serif; */
+  margin:0;
+  background-color: rgba(232, 250, 232, 0.377);
+  text-align: center;
+  background-image:url('../img/black-table-pizza-translucent.png');
+  background-size:contain;
+}
+
+
+/* Navbar styling */
+nav{
+  padding:0 !important;
+}
 nav ul li {
+<<<<<<< HEAD
   float:right;
+=======
+>>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
 }
 
-h1 {
-  color: rgb(146, 236, 140);
+#navbar-user-name{
+  padding-left: 15px;
 }
 
-body {
-  background-color: rgba(232, 250, 232, 0.377);
+
+
+
+
+
+/* Recipe Card CSS */
+.card-body, .card {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin:15px auto;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  /* background-color:rgb(215, 247, 212); */
+  /* background-color:rgb(0, 104, 7); */
+  background-color:white;
+  color:rgb(43, 56, 26);
+}
+
+.card-image{
+  overflow:hidden;
+  height:333px;
+  width:100%;
+}
+
+.card-image>img {
+  max-width: 333px;
+  max-height: 320px;
+}
+
+
+
+
+/* Details page styling */
+
+.details-image{
+  max-width: 333px;
+  max-height: 320px;
+}
+
+
+
+/* Styling for individual items */
+.app-name{
+  color:rgb(84, 154, 84);
+  font-family: 'Pacifico', cursive;
+}
+
+.user-name{
+  font-family: 'Indie Flower', cursive;
+  font-size:1.2rem;
+}
+
+.accordion-header{
+  font-weight:bold;
+  color:rgb(84, 154, 84);
 }
 
 li {
   padding: 5px;
 }
 
-.card-body, .card {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 3px;
-  padding: 5px;
-  font-family: Georgia, Times, 'Times New Roman', serif;
-  background-color:rgb(215, 247, 212);
-  color:rgb(43, 56, 26);
+h1 {
+  color:rgb(84, 154, 84);
 }
 
-div {
-  background-color:ivory
+a, h2, h3, .page-title {
+  color:rgb(84, 154, 84);
 }
 
+<<<<<<< HEAD
 a, h1, h2, h3 {
   color: green;
 }
@@ -47,3 +118,10 @@ input {
    max-width: 333px;
    max-height: 333px;
  }
+=======
+input {
+  width: 275px;
+}
+
+
+>>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
