@@ -23,10 +23,6 @@ nav{
   padding:0 !important;
 }
 nav ul li {
-<<<<<<< HEAD
-  float:right;
-=======
->>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
@@ -105,23 +101,8 @@ a, h2, h3, .page-title {
   color:rgb(84, 154, 84);
 }
 
-<<<<<<< HEAD
-a, h1, h2, h3 {
-  color: green;
-}
-
-input {
- width: 275px;
-}
-
- img {
-   max-width: 333px;
-   max-height: 333px;
- }
-=======
 input {
   width: 275px;
 }
 
 
->>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6

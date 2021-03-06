@@ -1,25 +1,6 @@
 <link rel="stylesheet" type="text/css"href="/css/explore.css">
 <script src="/js/explore.js" defer></script>
 <br>
-<<<<<<< HEAD
-<h1>Explore recipes to find what to cook!</h1>
-<hr>
-<div class="card-body" style="display: flex; flex-direction: row; justify-content: space-around;">
-<form method="GET" action="/recipe/searchbyName"class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search By Name" aria-label="Search" id="searchByName" name="nameSearch">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-<form method="GET" action="/recipe/searchByIngredient"class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Ingredient Search" aria-label="Search" id="searchByIngredient" name="ingredientSearch">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-</div>
-<% recipes.forEach((recipe) => { %> 
-                <li style="list-style-type: none;">
-                    <%- include('../partials/recipeCard', {recipe: recipe}) %> 
-                </li>
-<% }) %>
-=======
 <h1 class="page-title">Explore recipes to find what to cook!</h1>
 
 
@@ -46,5 +27,4 @@
 
 
 
->>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
 

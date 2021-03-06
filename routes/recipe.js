@@ -30,13 +30,9 @@ router.get('/details/:id', async (req,res) => {
     const favoriteRecipeId = await findFavorites(req);
     res.render('recipe/details.ejs', {recipe:recipe, isFavorite:favoriteRecipeId, instructions:instructions, ingredients:ingredients})
 })
-<<<<<<< HEAD
-//this is a working route for searching the database by ingredient that links to the search bar 
-=======
 
 
 // this is a working route for searching the database by ingredient that links to the search bar 
->>>>>>> submain
 router.get('/searchByIngredient', (req, res) => {
     db.ingredient.findAll({
         where: {
@@ -55,18 +51,6 @@ router.get('/searchByIngredient', (req, res) => {
     }) 
 });
 
-<<<<<<< HEAD
-  router.get('/searchByName', (req, res) => {
-    db.ingredient.findAll({
-        where: {
-            name: req.query.nameSearch
-        }, include: [db.recipe]
-    }).then(results => { 
-
-        res.render('recipe/searchResults', {recipe: results, isFavorite: null})
-    }) 
-  });
-=======
 router.get('/searchByName', (req, res) => {
 db.ingredient.findAll({
     where: {
@@ -76,7 +60,6 @@ db.ingredient.findAll({
     res.render('recipe/searchResults', {recipe: results, isFavorite: null})
 }) 
 });
->>>>>>> submain
 
 
 // Helper functions for route
