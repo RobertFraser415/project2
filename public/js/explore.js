@@ -20,7 +20,9 @@ const recipeNames=[
     'Seared Tuna Pepper Steaks',
     'Shrimp and Corn Salad',
     'Veggie Tacos',
-    'Crispy Baked Asian Chicken Wings'
+    'Crispy Baked Asian Chicken Wings',
+    "Cadbury Cream Cookie Cups",
+    "Raspberry Almond Thumbprint Cookies"
 ];
 
 function autocomplete(inp, arr) {

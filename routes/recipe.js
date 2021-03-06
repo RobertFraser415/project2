@@ -1,6 +1,4 @@
 //route for recipes
-
-//route for recipes
 const express = require('express')
 const db = require('../models')
 const router = express.Router()
@@ -32,36 +30,6 @@ router.get('/details/:id', async (req,res) => {
 })
 
 
-// this is a working route for searching the database by ingredient that links to the search bar 
-router.get('/searchByIngredient', (req, res) => {
-    db.ingredient.findAll({
-        where: {
-            name: req.query.ingredientSearch
-        }, include: [db.recipe]
-    }).then(results => { 
-        for (let i = 0; i < results.length; i++) {
-        db.recipe.findOne({
-            where: {
-                id: results[0].dataValues.recipeId
-            }
-        }).then(foundRecipe => {
-            res.render('recipe/searchResults', {recipe:foundRecipe, isFavorite: null})
-        })
-    }   
-    }) 
-});
-
-router.get('/searchByName', (req, res) => {
-db.ingredient.findAll({
-    where: {
-        name: req.query.nameSearch
-    }, include: [db.recipe]
-}).then(results => { 
-    res.render('recipe/searchResults', {recipe: results, isFavorite: null})
-}) 
-});
-
-
 // Helper functions for route
 
 // Finds recipe ids of users and stores them in an array
@@ -84,7 +52,5 @@ function getNames(recipeArray){
     }
     return nameArray;
 }
-
-
 
 module.exports = router;

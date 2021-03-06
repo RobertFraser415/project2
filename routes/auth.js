@@ -19,7 +19,7 @@ router.post('/signup', (req, res) => {
     if (created) {
       // success
       passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/user/dashboard',
         successFlash: 'Account created and user logged in!'
       })(req, res)
     } else {

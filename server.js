@@ -41,28 +41,10 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/info', (req, res)=>{
-  const options1 = {
-    method: 'GET',
-    url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/247969/analyzedInstructions',
-    params: {stepBreakdown: 'true'},
-    headers: {
-      'x-rapidapi-key': '4cb263df0bmsh3ff5c04afde99b5p1ad726jsn1de166cb145e',
-      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    }
-  };
-  axios.request(options1).then(function (response) {
-    console.log(response.data[0].steps);
-    res.send("Hello")
-  }).catch(function (error) {
-    console.error(error);
-  });
-})
 
 app.get('/', (req, res) => {
   res.render('main/index');
 });
-
 
 app.use('/user/profile', require('./routes/user/profile.js'));
 app.use('/auth', require('./routes/auth'));

@@ -3,7 +3,6 @@
 <br>
 <h1 class="page-title">Explore recipes to find what to cook!</h1>
 
-
 <form method="GET" action="/recipe" autocomplete="off">
     <div class="row justify-content-center">
         <div class="autocomplete col-md-3 col-sm-4">
@@ -18,13 +17,8 @@
 
 <div class="row justify-content-center">
     <% recipes.forEach((recipe) => { %> 
-        <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-8 col-sm-6 col-md-8 col-lg-6 col-xl-4">
             <%- include('../partials/recipeCard', {recipe: recipe}) %>
         </div>
         <% }) %>
 </div>
-
-
-
-
-

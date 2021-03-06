@@ -4,22 +4,18 @@ const db = require('../../models');
 const isLoggedIn = require('../../middleware/isLoggedIn')
 const router = express.Router();
 
-
-
 // Routes
 router.get('/', isLoggedIn, async (req, res) => {
     try{
-        // const recipesForDay = loadRecipesForDay(req); , recipesForEachDay:recipesForDay
         const user = await db.user.findOne({where: {id: req.user.id}, include:[db.recipe]});
-        const randomFavorites = getRandomFavorites(user.recipes);
+        const twoFavorites = getTwoFavorites(user.recipes);
         const favoriteRecipeId = await findFavorites(req);
         const randomRecipes = await loadRandomRecipes(favoriteRecipeId);
-        res.render('user/dashboard', {userFavorites:randomFavorites, recipes:randomRecipes, isFavorite: favoriteRecipeId})
+        res.render('user/dashboard', {userFavorites:twoFavorites, recipes:randomRecipes, isFavorite: favoriteRecipeId})
     } catch (error){
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 })
-
 
 // Helper functions for routes
 
@@ -31,8 +27,6 @@ function loadRecipesForDay(req){
         }, include:[db.recipe]
     }).then(function(foundUser){
         for (let item in foundUser.recipes) {
-            // console.log(foundUser.recipes)
-            // console.log(">>>>>>>",(foundUser.recipes[item].dataValues.favorites.dataValues.day)+1)
             favoritedByDays[(foundUser.recipes[item].dataValues.favorites.dataValues.day)+1]=foundUser.recipes[item]
         }
         return favoritedByDays
@@ -50,7 +44,7 @@ async function loadRandomRecipes(favoriteRecipeId){
         }
         return randomRecipes;
     } catch (error){
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 }
 
@@ -65,7 +59,7 @@ async function findFavorites(req){
         } 
         return favoriteRecipeId;
     } catch (error){
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 }
 
@@ -81,15 +75,16 @@ function getTwoRandom(max, favoriteRecipeId){
     // Push two random numbers onto the array
     randomNumbers.push(getRandomInt(0,max));
     randomNumbers.push(getRandomInt(0,max));
-    // If the random recipe id in index 0 is already in favorites, and if we haven't looped it over a 100 times yet, change the first random number
+
+    // If the random recipe id in index 0 is already in favorites, and if we haven't looped it over  10 times yet, change the first random number
     let key = 0;
-    while(favoriteRecipeId.includes(randomNumbers[0]) && key <= 100) {
+    while(key <= 10 && (favoriteRecipeId.includes(randomNumbers[0]))) {
         randomNumbers[0]=getRandomInt(0,max);
         key++;
     }
-    // If the random recipe id in index 1 is already in favorites or if the first and second number in the array are the same, AND if the number of times we have looped is less than a hundred, change the second random number
+    // If the random recipe id in index 1 is already in favorites or if the first and second number in the array are the same, AND if the number of times we have looped is less than 10, change the second random number
     key = 0;
-    while((favoriteRecipeId.includes(randomNumbers[1]) || randomNumbers[0]===randomNumbers[1]) && key <= 100){
+    while((key <= 10 && (favoriteRecipeId.includes(randomNumbers[1]) || randomNumbers[0]===randomNumbers[1])) ){
         randomNumbers[1]=getRandomInt(0,max);
         key++;
     }
@@ -102,23 +97,14 @@ function getTwoRandom(max, favoriteRecipeId){
     return randomNumbers;
 }
 
-// This function gets two random recipes from the ones I have already favorited
-function getRandomFavorites(recipeArray){
-    const randomFavorites=[];
-    const randomNumbers=[];
-    randomNumbers.push(getRandomInt(0,recipeArray.length));
-    randomNumbers.push(getRandomInt(0,recipeArray.length));
-    while(randomNumbers[0]===randomNumbers[1]) {
-        randomNumbers[1]=getRandomInt(0,recipeArray.length);
+// This function gets two recipes from the ones I have already favorited
+function getTwoFavorites(recipeArray){
+    console.log("recipeArray is ",recipeArray);
+    const twoFavorites=[];
+    for(let item in recipeArray){
+        twoFavorites.push(recipeArray[item]);
     }
-    for(let item in randomNumbers) {
-        randomFavorites.push(recipeArray[randomNumbers[item]]);
-    }
-    console.log(randomFavorites);
-    return randomFavorites;
+    return twoFavorites;
 }
-
-// 
-
 
 module.exports = router;

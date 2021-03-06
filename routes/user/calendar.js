@@ -28,7 +28,7 @@ router.get('/', isLoggedIn, async (req, res) => {
             recipesList: recipesList
         })
     } catch (error){
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 })
 
@@ -37,7 +37,7 @@ router.get('/add/:id', isLoggedIn, async (req, res) => {
         const toRecipe = await db.recipe.findOne({where: {id: req.params.id}})
         res.render('user/addCalendar', {recipe:toRecipe})
     }catch (error){
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 })
 
@@ -52,7 +52,7 @@ router.post('/add/:id', isLoggedIn, async (req,res) => {
         })
         res.redirect('/user/calendar')
     }catch (error){
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 })
 
@@ -69,7 +69,7 @@ async function findFavorites(req){
         } 
         return favoriteRecipeId;
     } catch (error) {
-        res.render('/main/404.ejs', error)
+        res.render('main/404.ejs', {error:error})
     }
 }
 

@@ -36,13 +36,17 @@
 <div class="row">
     <div class="col-6">
         <div class="border border-success border-1">
-            <h2>My favorites</h2>
+            <h2>My Favorites</h2>
             <ul>
-                <% userFavorites.forEach((favoriteRecipe) => { %> 
-                    <li style="list-style-type: none;">
-                        <%- include('../partials/recipeCard', {recipe:favoriteRecipe, isFavorite:isFavorite})  %> 
-                    </li>
-                <% }) %>
+                <% if (userFavorites.length > 0){ %>
+                    <% userFavorites.forEach((favoriteRecipe) => { %> 
+                        <li style="list-style-type: none;">
+                            <%- include('../partials/recipeCard', {recipe:favoriteRecipe, isFavorite:isFavorite})  %> 
+                        </li>
+                    <% }) %>
+                <% } else {%>
+                    <p> You have no favorites yet :( </p>
+                <% } %>                
             </ul>
             <form method="GET" action="/user/favorites">
                 <button class="btn btn-outline-success"type="submit" style="margin-bottom:10px;">See more favorites</button>
@@ -57,7 +61,7 @@
         <div class="random-recipe-section border border-success border-1" style="margin-top:10px;">
             <h2>Check out these recipes!</h2>
             <ul>
-                <% if (recipes) { %>
+                <% if (recipes.length > 0) { %>
                     <% recipes.forEach((recipe) => { %> 
                         <li style="list-style-type: none;">
                             <%- include('../partials/recipeCard', {recipe:recipe, isFavorite:isFavorite}) %> 
@@ -74,7 +78,10 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 
 >>>>>>> 0302b471891ac9309fe0fbf05f672bb7796d2be6
 
+=======
+>>>>>>> c96ccd8d1fb318143115976e1b101b1efd440ea9
 <script src="/js/dashboard.js"></script>

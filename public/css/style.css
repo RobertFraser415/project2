@@ -3,20 +3,16 @@
 }
 
 #body-container {
-  /* background-color:ivory */
   background-color:white;
   min-height:100vh;
-  /* background-color:rgb(213, 206, 206); */
 }
 body {
-  /* font-family: 'Nunito', sans-serif; */
   margin:0;
   background-color: rgba(232, 250, 232, 0.377);
   text-align: center;
   background-image:url('../img/black-table-pizza-translucent.png');
   background-size:contain;
 }
-
 
 /* Navbar styling */
 nav{
@@ -34,9 +30,6 @@ nav ul li {
 
 
 
-
-
-
 /* Recipe Card CSS */
 .card-body, .card {
   justify-content: center;
@@ -44,8 +37,6 @@ nav ul li {
   text-align: center;
   margin:15px auto;
   font-family: Georgia, Times, 'Times New Roman', serif;
-  /* background-color:rgb(215, 247, 212); */
-  /* background-color:rgb(0, 104, 7); */
   background-color:white;
   color:rgb(43, 56, 26);
 }
@@ -63,7 +54,6 @@ nav ul li {
 
 
 
-
 /* Details page styling */
 
 .details-image{
@@ -77,10 +67,11 @@ nav ul li {
 .app-name{
   color:rgb(84, 154, 84);
   font-family: 'Pacifico', cursive;
+  font-size:50px;
 }
 
 .user-name{
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Architects Daughter', cursive;
   font-size:1.2rem;
 }
 
@@ -105,4 +96,11 @@ input {
   width: 275px;
 }
 
+.page-title, .no-plan-section{
+  font-family: 'Architects Daughter', cursive;
+}
+
+.no-plan-section>h3{
+  color:black;
+}
 

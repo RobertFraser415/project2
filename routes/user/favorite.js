@@ -14,7 +14,7 @@ router.get('/', isLoggedIn, async (req, res) => {
       const favoriteRecipeId = await findFavorites(req);
       res.render('user/favorites.ejs', {favoritesList:user.recipes, isFavorite: favoriteRecipeId})    
    } catch (error){
-      res.render('/main/404.ejs', error)
+      res.render('main/404.ejs', {error:error})
    }
 })
 
@@ -27,7 +27,7 @@ router.post('/:id', isLoggedIn, async (req,res)=> {
       req.flash('success', `You have added ${recipe.name} to your favorites!`);
       res.redirect('/user/favorites');
    } catch (error){
-      res.render('/main/404.ejs', error)
+      res.render('main/404.ejs', {error:error})
    }
 })
 
@@ -39,7 +39,7 @@ router.delete('/:id', isLoggedIn, async (req,res)=> {
       req.flash('success', `You have removed ${recipe.name} from your favorites!`);
       res.redirect('/user/favorites')
    } catch (error){
-      res.render('/main/404.ejs', error)
+      res.render('main/404.ejs', {error:error})
    }
 })
 
@@ -55,10 +55,8 @@ async function findFavorites(req){
       } 
       return favoriteRecipeId;
    } catch (error){
-      res.render('/main/404.ejs', error)
+      res.render('main/404.ejs', {error:error})
    }
 }
-
-
 
 module.exports = router;

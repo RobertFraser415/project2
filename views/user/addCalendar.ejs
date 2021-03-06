@@ -1,16 +1,18 @@
-<h1>Which day would you want to eat this?</h1>
-
-<form action="/user/calendar/add/<%=recipe.id%> " method="POST">
-    <label for="day">Day</label>
-        <select name="day" id="day" required>
-            <option value="1">Monday</option>
-            <option value="2">Tuesday</option>
-            <option value="3">Wednesday</option>
-            <option value="4">Thursday</option>
-            <option value="5">Friday</option>
-            <option value="6">Saturday</option>
-            <option value="7">Sunday</option>
-        </select>
-    <input type="submit" class="btn btn-primary">
-</form>
+<div class="row d-flex justify-content-center">
+    <h2 class="page-title">Which day would you want to eat this?</h2>
+    <form action="/user/calendar/add/<%=recipe.id%> " method="POST">
+        <div class="col-md-4 offset-md-4 d-flex justify-content-center">
+            <select class="form-select" name="day" id="day" required>
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+                <option value="7">Sunday</option>
+            </select>
+            <button type="submit" class="btn btn-outline-success">Submit</button>
+        </div>
+    </form>
+</div>
 
